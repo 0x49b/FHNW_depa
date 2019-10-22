@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ConstantlyOpenWindows",
+            "request": "launch",
+            "mainClass": "org.thievent.constantlyopenwindows.ConstantlyOpenWindows",
+            "projectName": "memmon_c474e0aa"
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MulticastTest",
+            "request": "launch",
+            "mainClass": "patterns.observer.memory.MulticastTest",
+            "projectName": "03_Observer2"
+        }
+    ]
+}
