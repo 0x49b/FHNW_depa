@@ -1,0 +1,48 @@
+plugins {
+	id 'java'
+}
+
+repositories {
+	jcenter()
+}
+
+sourceCompatibility = 11
+targetCompatibility = 11
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+dependencies {
+	implementation 'junit:junit:4.12'
+}
+
+
+task gradleWrapper(type: Wrapper)
+task zip(type: Zip) {
+	group = 'distribution'
+	dependsOn gradleWrapper
+	from projectDir
+
+	include 'build.gradle'
+	include 'gradle/**'
+	include 'gradlew'
+	include 'gradlew.bat'
+
+	include 'src/main/java/patterns/clone/*.java'
+	include 'src/main/java/patterns/clone/company/*.java'
+	include 'src/main/java/patterns/clone/airplane/*.java'
+}
+
+task zipSol(type: Zip) {
+	group = 'distribution'
+	baseName = baseName + '-solution'
+	dependsOn gradleWrapper
+	from projectDir
+
+	include 'build.gradle'
+	include 'gradle/**'
+	include 'gradlew'
+	include 'gradlew.bat'
+
+	include 'src/main/java/patterns/clone/company/clone/*.java'
+	include 'src/main/java/patterns/clone/company/copy/*.java'
+}
