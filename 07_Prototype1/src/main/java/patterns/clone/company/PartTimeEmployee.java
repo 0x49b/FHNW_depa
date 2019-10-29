@@ -8,6 +8,11 @@ public class PartTimeEmployee extends Employee {
 		this.workload = workload;
 	}
 
+	public PartTimeEmployee(PartTimeEmployee pte){
+		super(pte);
+		this.workload = pte.workload;
+	}
+
 	public int getWorkload() {
 		return workload;
 	}
@@ -28,7 +33,6 @@ public class PartTimeEmployee extends Employee {
 
 	@Override
 	public PartTimeEmployee clone() {
-		// TODO Task 6: implement method clone
-		return null;
+		return new PartTimeEmployee(this);
 	}
 }

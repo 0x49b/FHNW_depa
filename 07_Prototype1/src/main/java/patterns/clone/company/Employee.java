@@ -1,12 +1,17 @@
 package patterns.clone.company;
 
-public class Employee {
+public class Employee{
 	private String name;
 	private int yearOfBirth;
 
 	public Employee(String name, int yearOfBirth) {
 		this.name = name;
 		this.yearOfBirth = yearOfBirth;
+	}
+
+	public Employee(Employee e){
+		this.name = e.name;
+		this.yearOfBirth = e.yearOfBirth;
 	}
 
 	public String getName() {
@@ -37,7 +42,6 @@ public class Employee {
 
 	@Override
 	public Employee clone() {
-		// TODO Task 1: implement method clone
-		return null;
+		return new Employee(this);
 	}
 }

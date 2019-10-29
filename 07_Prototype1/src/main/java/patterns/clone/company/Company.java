@@ -1,14 +1,21 @@
 package patterns.clone.company;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class Company {
+public class Company{
 	private String name;
 	private List<Employee> employees = new ArrayList<>();
 
 	public Company(String name) {
 		this.name = name;
+	}
+
+	public Company(Company c){
+		this.name = c.name;
+		this.employees = c.employees.stream().map(e -> e.clone()).collect(Collectors.toList());
 	}
 
 	public String getName() {
@@ -40,6 +47,7 @@ public class Company {
 	@Override
 	public Company clone() {
 		// TODO Task 2&3: implement method clone
-		return null;
+
+		return new Company(this);
 	}
 }
