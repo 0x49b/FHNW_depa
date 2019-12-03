@@ -1,0 +1,33 @@
+plugins {
+	id 'java'
+}
+
+repositories {
+	jcenter()
+}
+
+sourceCompatibility = 11
+targetCompatibility = 11
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+dependencies {
+	testImplementation 'junit:junit:4.12'
+}
+
+
+task gradleWrapper(type: Wrapper)
+task zip(type: Zip) {
+	group = 'distribution'
+	dependsOn gradleWrapper
+	from projectDir
+
+	include 'build.gradle'
+	include 'gradle/**'
+	include 'gradlew'
+	include 'gradlew.bat'
+
+	include 'src/main/java/patterns/decorator/*.java'
+	include 'src/main/java/patterns/decorator/util/*.java'
+	include 'src/test/java/patterns/decorator/util/*.java'
+}
